@@ -1,3 +1,24 @@
+@font-face {
+  font-family: 'Calistoga';
+  src: url('../public/fonts/calistoga/Calistoga-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Luckiest Guy';
+  src: url('../public/fonts/luckiest_guy/LuckiestGuy-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+} 
+
+:root{
+  --peps: #BB261F;
+  --clear: #EED9A6;
+  --policeExplosive: 'Luckiest Guy', cursive;
+  --policeCalistoga: 'Calistoga', cursive;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +26,357 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #EED9A6;  
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.p-small {
+  padding: 5rem;
+}
+
+#supposition {
+    height: 30rem;
+}
+
+#supposition h1{
+    writing-mode: sideways-lr;
+    font-size: calc(30rem/7) !important;
+}
+@media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .p-small {
+    padding: 1.5rem;
+  }
+  #supposition {
+    height: 20rem;
+    background-color: #DF7642;
+  }
+
+  #supposition h1{
+    font-size: calc(20rem / 6) !important;
+  }
+}
+
+
+h1 {
+  font-family: 'Calistoga';
+  font-size: 3vw;
+  color: #333;
+}
+
+ #caca {
+  background-color: yellow;
+}
+.logo {
+  filter: drop-shadow(0px 0px 15px #DF7642);
+  width: 18em;
+  height: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.shadow-img {
+  filter: drop-shadow(0px 0px 6px #DF7642)
+}
+
+.box {
+  padding: 20% 7% 20% 7%;
+  border-radius: 50%;
+  position: relative;
+}
+.filter-layer {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 200, 0.5);
+  mix-blend-mode: color-dodge;
+  z-index: 1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.action-button {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 200, 0.33);
+  mix-blend-mode: color-dodge;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.presentation-nekloo {
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+
+  }
+.presentation-nekloo img {
+  width: 10%;
+  height: auto;
+}
+
+#aliph {
+  position: absolute;
+  top: -1%;
+  left: 48%;
+  width: 4em;
+  height: auto;
+  transform: rotate(170deg);
+}
+
+#noun {
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 10em;
+  height: auto;
+  transform: rotate(180deg);
+}
+
+#n {
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  width: 10em;
+  height: auto;
+  transform: rotate(90deg);
+}
+
+#kaf {
+  position: absolute;
+  right: -5%;
+  top: 0%;
+  width: 10em;
+  height: auto;
+}
+
+#l {
+  position: absolute;
+  left: 2%;
+  top: 22%;
+  width: 10em;
+  height: auto;
+}
+
+#k {
+  position: absolute;
+  left: 4%;
+  bottom: -4%;
+  width: 12em;
+  height: auto;
+  transform: rotate(-90deg);
+}
+
+#e {
+  position: absolute;
+  right: -4%;
+  top: 40%;
+  width: 10em;
+  height: auto;
+}
+
+
+#oo {
+  position: absolute;
+  right: -5%;
+  bottom: 6%;
+  width: 14em;
+  height: auto;
+  transform: rotate(90deg);
+}
+
+.form {
+  background-color: rgba(244, 230, 195, 0.9);
+}
+
+h2 {
+  font-family: 'Luckiest Guy';
+  color: var(--peps);
+  font-size: 2.5em;
+}
+
+.title {
+  font-family: 'calistoga';
+  color: var(--peps);
+}
+
+.bg-peps {
+  background-color: var(--peps);
+  color: white;
+}
+
+
+label {
+  font-family: 'Calistoga';
+  color: var(--peps);
+}
+
+input, textarea {
+  font-family: 'Calistoga';
+  color: var(--peps);
+  height: 2.5em;
+  }
+
+input:focus {
+  box-shadow: #691D08 5px 5px 10px;
+}
+
+.form-control {
+  box-shadow:  0px 4px 4px rgba(189, 94, 11, 0.5);
+  outline: none;
+  background-color: var(--clear);
+  border: 0px 0px 0px 0px var(--peps);
+}
+
+.form-control:focus {
+  box-shadow: 0px 5px 6px #691D08;
+  outline: none;
+  border: 0.5px solid #691D08;
+  background-color: var(--clear);
+}
+
+.prevStep, button {
+  font-family: 'Calistoga';
+  border-radius: 10%;
+}
+
+#nextStep {
+  background-color: var(--clear);
+  color: var(--peps);
+  border: none;
+  height: 3em;
+  font-size: 1.1em;
+}
+
+#nextStep:hover {
+  transform: translateX(10px);
+  transition: transform 0.2s ease-in-out;
+}
+
+#nextStep:focus {
+  box-shadow: 0px 5px 6px #691D08;
+}
+
+#loginLink {
+  font-family: 'Calistoga';
+  color: var(--peps);
+}
+
+#validate {
+  font-family: 'Luckiest Guy';
+  background-color: var(--peps);
+  border: none;
+  color: var(--clear);
+  box-shadow: 0px 5px 6px #691D08;
+  font-size: 1.8em;
+  height: 2em;
+}
+
+#validate:focus {
+  transform: scale(0.9);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 30px;
+  width: 30px;
+  left: 2px;
+  top: 2px;
+  background-color: var(--clear);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--peps);
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--peps);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.buttonBar:hover {
+  transform: translateY(-30px);
+  transition: transform 0.2s ease-in-out;
+  filter: drop-shadow(0px 30px 4px #691D08);
+}
+
+.navigation {
+  background-color: rgba(244, 230, 195, 0.9);
+}
+
+.tag {
+  border: var(--peps) solid 1px;
+  border-radius: 10px;
+  background-color: rgba(187, 38, 31, 1);
+  color: var(--clear);
+}
+
+.round-group {
+  border-radius: 36px;
+}
+
+.action-button-card {
+  width: 43vw;
+}
+
+
+
+@media (min-width: 647px) {
+  .action-button-card {
+    width: 35vw;
+  }
+}
+
+@media (min-width: 1000px) {
+  .action-button-card {
+    width: 40vw;
+    
+  }
 }

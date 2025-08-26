@@ -1,0 +1,31 @@
+- / : [GET]
+- vagabonds/ : [GET]
+- vagabond/
+	- create/ : [POST]
+	- update/ : [PUT]
+	- delete/ : [DELETE]
+	- {id}/ : [GET]
+- login/: [POST]
+- logout/ : [POST]
+- admin/
+	- update/ : [PUT]
+	- {id}/ : [GET
+- places/ : [GET]
+- place/
+	- create/ : [POST]
+	- update/ : [PUT]
+	- delete/ : [DELETE]
+	- {id}/ : [GET
+- activitues/ : [GET]
+- activity/
+	- create/ : [POST]
+	- update/ : [PUT]
+	- delete/ : [DELETE]
+	- {id}/ : [GET
+- suppositions /: [GET]
+- supposition/
+	- create/ : [POST]
+	- update/ : [PUT]
+	- delete/ : [DELETE]
+	- {id}/ : [GET
+- live/
