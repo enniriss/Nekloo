@@ -380,3 +380,10 @@ input:checked + .slider:before {
     
   }
 }
+
+@media (min-width: 1200px) {
+  .action-button-card {
+    width: 30vw;
+    
+  }
+}

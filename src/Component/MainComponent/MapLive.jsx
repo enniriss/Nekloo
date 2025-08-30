@@ -11,50 +11,50 @@ export default function MapLive() {
     const mapRef = useRef(null);
     const watchIdRef = useRef(null);
 
-    const onLoad = useCallback(() => {
-        const map = mapRef.current?.getMap();
-        if (!map) return;
-    
-        try {
-            // Ajouter une couche 3D après que la carte ait fini de charger
-            map.addLayer({
-                id: '3d-buildings',
-                source: 'openmaptiles',
-                'source-layer': 'building',
-                type: 'fill-extrusion',
-                minzoom: 15,
-                paint: {
-                    'fill-extrusion-color': '#aaa',
-                    'fill-extrusion-height': ['get', 'render_height'],
-                    'fill-extrusion-base': ['get', 'render_min_height'],
-                    'fill-extrusion-opacity': 0.6,
-                },
-            });
-        } catch (error) {
-            console.log('Couche 3D non disponible:', error);
-        }
-    }, []);
+        const onLoad = useCallback(() => {
+            const map = mapRef.current?.getMap();
+            if (!map) return;
+        
+            try {
+                // Ajouter une couche 3D après que la carte ait fini de charger
+                map.addLayer({
+                    id: '3d-buildings',
+                    source: 'openmaptiles',
+                    'source-layer': 'building',
+                    type: 'fill-extrusion',
+                    minzoom: 15,
+                    paint: {
+                        'fill-extrusion-color': '#aaa',
+                        'fill-extrusion-height': ['get', 'render_height'],
+                        'fill-extrusion-base': ['get', 'render_min_height'],
+                        'fill-extrusion-opacity': 0.6,
+                    },
+                });
+            } catch (error) {
+                console.log('Couche 3D non disponible:', error);
+            }
+        }, []);
 
-    const fetchPlaces = async () => {
-        try {
-            // Simulation de données - remplacez par votre vraie API
-            const token = localStorage.getItem('token');
-            const response = await fetch(`http://localhost:10000/places/readall`, {
-                method: 'GET',
-                headers: {'Content-Type': 'application/json', "Authorization": `Bearer ${token}`}
-            });
-            const data = await response.json();
-            setPlaces(data.data);
-            
-            // setPlaces([]);
-        } catch (error) {
-            console.error('Error fetching places:', error);
-        }
-    };
+        const fetchPlaces = async () => {
+            try {
+                // Simulation de données - remplacez par votre vraie API
+                const token = localStorage.getItem('token');
+                const response = await fetch(`http://localhost:10000/places/readall`, {
+                    method: 'GET',
+                    headers: {'Content-Type': 'application/json', "Authorization": `Bearer ${token}`}
+                });
+                const data = await response.json();
+                setPlaces(data.data);
+                
+                // setPlaces([]);
+            } catch (error) {
+                console.error('Error fetching places:', error);
+            }
+        };
 
-    useEffect(() => {
-        fetchPlaces();
-    }, []);
+        useEffect(() => {
+            fetchPlaces();
+        }, []);
 
     useEffect(() => {
         const startTracking = () => {

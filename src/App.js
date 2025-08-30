@@ -60,7 +60,9 @@ function App() {
         <Route path="/administration" element={<AuthAdmin />} ><Route index element={<Administration />} /></Route>
 
         {/* Place */}
-        <Route path="/place/create" element={<AuthAdmin />} ><Route index element={<PlaceForm />} /></Route>
+        <Route path="/place/create" element={<AuthAdmin />} >
+          <Route index element={<PlaceForm />} />
+        </Route>
         <Route path="/place/readall" element={<AuthAdmin />} ><Route index element={<PlaceReadAll />} /></Route>
       </Routes>
     </Router>
