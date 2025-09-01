@@ -11,14 +11,18 @@ export default function Administration() {
                     <div className="col-6">
                         <>
                         <h2>Activity</h2>
-                        <a href="" className="btn btn-primary">Lire tous</a>
-                        <a href="/activity/create" className="btn btn-primary">Ajouter</a>
+                        <div className='d-flex gap-3'>
+                            <a href="" className="btn btn-success" style={{backgroundColor: "#105B17"}}>Lire tous</a>
+                            <a href="/activity/create" className="btn btn-primary">Ajouter</a>
+                        </div>
                         </>
                     </div>
                     <div className="col-6">
                         <h2>Place</h2>
-                        <a href="/place/readall" className="btn btn-primary">Lire tous</a>
-                        <a href="/place/create" className="btn btn-primary">Ajouter</a>
+                        <div className='d-flex gap-3'>
+                            <a href="/place/readall" className="btn btn-success" style={{backgroundColor: "#105B17"}}>Lire tous</a>
+                            <a href="/place/create" className="btn btn-primary">Ajouter</a>
+                        </div>
                     </ div>
                 </div>
                 </div>

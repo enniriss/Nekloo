@@ -39,7 +39,7 @@ export default function RegistrationForm() {
 
     try {
       // Utiliser directement l'URL complète pour le diagnostic
-      const response = await fetch('http://127.0.0.1:3000/user/create', {
+      const response = await fetch('https://nekloo-api.onrender.com/user/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ export default function RegistrationForm() {
   return (
     <Container className="d-flex justify-content-center align-items-center h-100 w-100" style={{ padding: '0', margin: '0' }}>
       <Card className="p-4 shadow-sm form border-0 rounded-5 shadow-lg" style={{ width: '100%', height: 'auto' }}>
-        <h2 className="text-center mb-4">Connexion</h2>
+        <h2 className="text-center mb-4">Inscription</h2>
 
         {message && (
           <div className={`p-3 mb-4 rounded ${message.includes('Erreur') ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
@@ -168,9 +168,10 @@ export default function RegistrationForm() {
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="py-2 px-4 rounded-md prevStep"
+                  className="prevStep mt-3 mr-2 rounded-5"
+                  style={{ width: '40%' }}
                 >
-                  La suite
+                  Précedent
                 </button>
                 <ValidationButton props={{
                   onClick: handleSubmit,

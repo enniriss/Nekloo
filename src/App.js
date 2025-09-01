@@ -13,7 +13,6 @@ import AuthAdmin from './Middleware/AuthAdmin';
 import AuthVagabond from './Middleware/AuthVagabond';
 import AuthConnected from './Middleware/AuthConnected';
 import CustomMap from './Component/Basic/CustomMap';
-import SuppositionForm from './Component/MainComponent/SuppositionForm';
 import GeocodeSearch from './Page/GeocodeSearch';
 import Supposition from './Page/SuppositionCreate';
 import Parameters from './Page/Parameters';
@@ -25,6 +24,7 @@ import Administration from './Page/Administration';
 import Account from './Page/Account';
 import PlaceForm from './Component/MainComponent/Place/PlaceForm';
 import PlaceReadAll from './Component/MainComponent/Place/PlaceReadAll';
+import SuppositonReadOne from './Component/MainComponent/Suppositions/SuppositonReadOne';
 function App() {
   return (
     <Router>
@@ -40,12 +40,13 @@ function App() {
         <Route path="/" element={<AuthConnected />}><Route index element={<Home />} /></Route>
         <Route path="/about" element={<AuthAdmin />}><Route index element={<About />} /></Route>
         <Route path="/parameters" element={<AuthConnected />} ><Route index element={<Parameters />} /></Route>
-        <Route path="/account" element={<AuthConnected />} ><Route index element={<Account/>}/></Route>
+        <Route path="/account" element={<AuthConnected />} ><Route index element={<Account />} /></Route>
 
         {/* Supposition */}
         <Route path="/supposition/create" element={<AuthVagabond />} ><Route index element={<Supposition />} /></Route>
         <Route path="/supposition/read" element={<AuthVagabond />} ><Route index element={<ReadSupposition />} /></Route>
         <Route path="/supposition/readall" element={<AuthAdmin />} ><Route index element={<SuppositionReadAll />} /></Route>
+        <Route path="/test/:userId/:suppositionId" element={<AuthAdmin />} ><Route index element={<SuppositonReadOne />} /></Route>
         <Route path="/supposition/readmine" element={<AuthVagabond />} ><Route index element={<SuppositionReadMine />} /></Route>
 
 

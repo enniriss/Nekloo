@@ -8,9 +8,11 @@ export default function Account() {
     const userId = localStorage.getItem('id'); 
     const fetchAccount = async () => {
             try {
-                const response = await fetch(`http://localhost:3000/user/read/${userId}`, {
+                const response = await fetch(`https://nekloo-api.onrender.com/user/read/${userId}`, {
                     method: 'GET',
-                    headers: {'Content-Type': 'application/json'}});
+                    headers: {'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    }});
                 
                 const data = await response.json();
                 SetAccount(data);
@@ -25,7 +27,7 @@ export default function Account() {
         
     return (
         <div>
-            <a href="" className="text-decoration-none title" style={{ fontSize: "100px"}}>&lt;</a>
+            <a href="/parameters" className="text-decoration-none title" style={{ fontSize: "100px"}}>&lt;</a>
             <div style={{ padding: '20px', maxWidth: '400px' }}>
                 <h2>{account ? account.pseudo : ""}</h2>
                 <p>Cette page est en cours de développement. Vous pouvez y configurer vos préférences et paramètres personnels.</p>

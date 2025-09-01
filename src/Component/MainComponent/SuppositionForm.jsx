@@ -7,11 +7,23 @@ import MapTemplate from '../Basic/MapTemplate';
 
 export default function SuppositionForm() {
   const userId = localStorage.getItem('id');
+  const [activities, setActivities] = useState([]);
+
   const [formData, setFormData] = useState({
     address: '',
     name: '',
     activityId: ''
   });
+
+  const fetchActivities = async () => {
+        try {
+            const response = await fetch(`https://nekloo-api.onrender.com/activity/readall`, {
+                method: 'GET',
+                headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` }});
+            const data = await response.json();
+            console.log('data', data.data);  
+            setActivities(data.data);
+        } catch (error) {console.error('Error fetching suppositions:', error);}};
 
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -82,7 +94,7 @@ export default function SuppositionForm() {
 
     return () => clearTimeout(delayDebounce);
   }, [formData.address]); // SUPPRIMÉ coords des dépendances !
-
+  useEffect(() => {fetchActivities();}, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -94,7 +106,7 @@ export default function SuppositionForm() {
 
     // Afficher les données envoyées pour debug
     console.log("Données envoyées:", JSON.stringify(dataToSend, null, 2));
-    const url = `http://127.0.1:3000/user/${userId}/supposition/create`;
+    const url = `https://nekloo-api.onrender.com/user/${userId}/supposition/create`;
     console.log("url", url);
 
     try {
@@ -103,6 +115,7 @@ export default function SuppositionForm() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
         body: JSON.stringify(dataToSend),
       });
@@ -206,10 +219,11 @@ export default function SuppositionForm() {
                 value={formData.activityId}
                 onChange={handleChange}
               >
-                <option>Open this select menu</option>
-                <option value="1">Coffee Shop</option>
-                <option value="2">Expo</option>
-                <option value="3">Library</option>
+                <option>Choisissez une activité</option>
+                {activities.map((activity) => (
+                  <option value={activity.id}>
+                    {activity.name}
+                  </option>))}
               </Form.Select>
             </Form.Group>
 

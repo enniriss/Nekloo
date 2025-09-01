@@ -2,6 +2,7 @@ import { useState, useRef, useCallback, useEffect } from 'react';
 import Map, { NavigationControl, Marker } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import maplibregl from 'maplibre-gl';
+import Navigation from "../Basic/Navigation";
 
 export default function MapLive() {
     const [coord, setCoord] = useState(null);
@@ -39,7 +40,7 @@ export default function MapLive() {
             try {
                 // Simulation de données - remplacez par votre vraie API
                 const token = localStorage.getItem('token');
-                const response = await fetch(`http://localhost:10000/places/readall`, {
+                const response = await fetch(`https://nekloo-api.onrender.com/places/readall`, {
                     method: 'GET',
                     headers: {'Content-Type': 'application/json', "Authorization": `Bearer ${token}`}
                 });
@@ -274,6 +275,8 @@ export default function MapLive() {
                     }
                 `
             }} />
+          <Navigation />
+            
         </div>
     );
 }

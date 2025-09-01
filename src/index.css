@@ -247,6 +247,14 @@ input:focus {
   border-radius: 10%;
 }
 
+.prevStep {
+  background-color: var(--clear);
+  color: var(--peps);
+  border: none;
+  height: 3em;
+  font-size: 1.1em;
+}
+
 #nextStep {
   background-color: var(--clear);
   color: var(--peps);
@@ -255,12 +263,17 @@ input:focus {
   font-size: 1.1em;
 }
 
+.prevStep:hover {
+  transform: translateX(-10px);
+  transition: transform 0.2s ease-in-out;
+}
+
 #nextStep:hover {
   transform: translateX(10px);
   transition: transform 0.2s ease-in-out;
 }
 
-#nextStep:focus {
+#nextStep, .prevStep:focus {
   box-shadow: 0px 5px 6px #691D08;
 }
 
@@ -386,4 +399,31 @@ input:checked + .slider:before {
     width: 30vw;
     
   }
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 20px;
+}
+
+.back-link {
+    position: absolute;
+    left: 20px;
+    font-size: 75px;
+    text-decoration: none;
+    color: var(--peps);
+    font-family: 'Calistoga';
+}
+
+.title {
+    margin: 0;
+    text-align: center;
+    color: #333;
+}
+
+#back {
+  color: var(--peps);
 }

@@ -1,7 +1,5 @@
 import NeklooForm from "../../Form/NeklooForm";
 import Input from "../../Form/Input";
-import Textarea from "../../Form/Textarea";
-import LogicForm from "../../Hook/LogicForm";
 import { useState, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import ValidationButton from "../../Form/ValidationButton";
@@ -15,7 +13,7 @@ export default function PlaceForm() {
     const [error, setError] = useState(null);
     const fetchActivities = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/activity/readall`, {
+            const response = await fetch(`https://nekloo-api.onrender.com/activity/readall`, {
                 method: 'GET',
                 headers: {'Content-Type': 'application/json'}});
             const data = await response.json();

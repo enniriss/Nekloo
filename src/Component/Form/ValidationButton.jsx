@@ -6,7 +6,7 @@ export default function ValidationButton({props, type}) {
         type="button"
         onClick={props.onClick}
         className={clsx(
-          type === 'next' ? ' mt-3 rounded-5 w-75' : 'mt-3 py-2 px-4 rounded-5 w-75',
+          type === 'next' ? ' mt-3 rounded-5 w-75' : 'mt-3 py-2 px-4 rounded-5 w-75 h-100',
         )}
         id={clsx(
             type === 'next' ? 'nextStep' : 'validate',

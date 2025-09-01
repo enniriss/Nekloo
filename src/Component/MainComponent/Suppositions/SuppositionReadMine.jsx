@@ -6,28 +6,29 @@ export default function SuppositionReadAll() {
     const userId = localStorage.getItem('id');
     const pseudo = localStorage.getItem('pseudo');
     const token = localStorage.getItem('token');
-        
-        const fetchSuppositions = async () => {
-            try {
-                const response = await fetch(`http://localhost:10000/user/${userId}/supposition/read`, {
-                    method: 'GET',
-                    headers: {'Content-Type': 'application/json', 'Authorization': `Bearer ${token}`}});
-                
-                const data = await response.json();
-                console.log('data', data.data);  
-                setSuppositions(data.data);
-                
-            } catch (error) {
-                console.error('Error fetching suppositions:', error);
-            }
-        };
 
-        console.log("suppositions", suppositions);
-        
-        
-        useEffect(() => {
+    const fetchSuppositions = async () => {
+        try {
+            const response = await fetch(`https://nekloo-api.onrender.com/user/${userId}/supposition/read`, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }
+            });
+
+            const data = await response.json();
+            console.log('data', data.data);
+            setSuppositions(data.data);
+
+        } catch (error) {
+            console.error('Error fetching suppositions:', error);
+        }
+    };
+
+    console.log("suppositions", suppositions);
+
+
+    useEffect(() => {
         fetchSuppositions();
-      }, []);
+    }, []);
     return (
         <div>
             <h4>{pseudo}</h4>
@@ -42,7 +43,7 @@ export default function SuppositionReadAll() {
                 </>
             ))}
         </div>
-        
+
     );
-    
+
 }
